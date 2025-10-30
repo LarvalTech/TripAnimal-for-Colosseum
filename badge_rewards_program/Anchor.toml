@@ -1,0 +1,19 @@
+
+[toolchain]
+
+[features]
+seeds = false
+skip-lint = false
+
+[programs.localnet]
+workspace = "Cw4KGKQcW3Y2C2h299p8h45ETKmtVipVsm7ZkDtEsEQR"
+
+[registry]
+url = "https://api.apr.dev"
+
+[provider]
+cluster = "http://local-validator:8899"
+wallet = "~/.config/solana/id.json"
+
+[scripts]
+test = "yarn run ts-mocha -p ./tsconfig.json -t 1000000 tests/**/*.ts"
