@@ -1,5 +1,5 @@
 {
-  "buildCommand": "npm run build",
+  "buildCommand": "cd badge_rewards_program && npm install && npm run build",
   "outputDirectory": "badge_rewards_program/build/client",
   "rewrites": [
     {
