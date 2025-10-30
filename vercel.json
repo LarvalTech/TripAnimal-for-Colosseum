@@ -1,0 +1,10 @@
+{
+  "buildCommand": "cd badge_rewards_program && npm run build",
+  "outputDirectory": "badge_rewards_program/build/client",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
