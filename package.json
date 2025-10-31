@@ -1,0 +1,11 @@
+{
+  "name": "tripanimal-agri",
+  "version": "1.0.0",
+  "description": "TripAnimal Agri - AR Tourism Platform",
+  "private": true,
+  "scripts": {
+    "build": "cd badge_rewards_program && npm run build",
+    "dev": "cd badge_rewards_program && npm run dev",
+    "start": "cd badge_rewards_program && npm run start"
+  }
+}
