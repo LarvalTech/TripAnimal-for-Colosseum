@@ -1,6 +1,10 @@
 {
-  "buildCommand": "cd badge_rewards_program && npm install && npm run build",
+  "buildCommand": "npm install && npm run build",
   "outputDirectory": "badge_rewards_program/build/client",
+  "installCommand": "npm install && cd badge_rewards_program && npm install",
+  "env": {
+    "NODE_ENV": "production"
+  },
   "rewrites": [
     {
       "source": "/(.*)",
