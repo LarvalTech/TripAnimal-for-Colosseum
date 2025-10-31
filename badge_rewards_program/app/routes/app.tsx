@@ -72,6 +72,9 @@ export default function Dashboard() {
     minStakePeriod: "0",
   });
   const [showRewardPreview, setShowRewardPreview] = useState(false);
+  const [showGallery, setShowGallery] = useState(false);
+  const [createdBadges, setCreatedBadges] = useState<any[]>([]);
+  const [createdRewards, setCreatedRewards] = useState<any[]>([]);
 
   // Redirect if not connected
   if (!connected || !publicKey) {
@@ -104,6 +107,7 @@ export default function Dashboard() {
   const handleBadgeApprove = () => {
     // TODO: Call initializeBadge smart contract function
     console.log("Badge approved:", badgeFormData);
+    setCreatedBadges([...createdBadges, badgeFormData]);
     setShowBadgePreview(false);
     setActiveForm(null);
     setBadgeFormData({
@@ -125,6 +129,7 @@ export default function Dashboard() {
   const handleRewardApprove = () => {
     // TODO: Call initializeReward smart contract function
     console.log("Reward approved:", rewardFormData);
+    setCreatedRewards([...createdRewards, rewardFormData]);
     setShowRewardPreview(false);
     setActiveForm(null);
     setRewardFormData({
@@ -164,7 +169,7 @@ export default function Dashboard() {
           </div>
 
           {/* Tab Navigation */}
-          <div className="flex gap-4 mb-8 border-b border-slate-200">
+          <div className="flex gap-4 mb-8 border-b border-slate-200 items-center justify-between"><div className="flex gap-4">
             <button
               onClick={() => {
                 setActiveTab("badges");
@@ -192,6 +197,15 @@ export default function Dashboard() {
               Manage Rewards
             </button>
           </div>
+            </div>
+            {(createdBadges.length > 0 || createdRewards.length > 0) && (
+              <button
+                onClick={() => setShowGallery(true)}
+                className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg transition font-semibold"
+              >
+                Gallery ({createdBadges.length + createdRewards.length})
+              </button>
+            )}
 
           {/* Badges Tab */}
           {activeTab === "badges" && (
@@ -300,7 +314,7 @@ export default function Dashboard() {
                       </label>
                       <input
                         type="text"
-                        placeholder="Unique identifier for this badge"
+                        placeholder="e.g., badge_001"
                         value={badgeFormData.badgeId}
                         onChange={(e) =>
                           setBadgeFormData({
@@ -386,7 +400,7 @@ export default function Dashboard() {
                       </label>
                       <input
                         type="number"
-                        placeholder="Points needed to earn this badge"
+                        placeholder="e.g., 100"
                         value={badgeFormData.requiredPoints}
                         onChange={(e) =>
                           setBadgeFormData({
@@ -406,7 +420,7 @@ export default function Dashboard() {
                       </label>
                       <input
                         type="number"
-                        placeholder="Maximum times this badge can be earned"
+                        placeholder="e.g., 5"
                         value={badgeFormData.maxEarnings}
                         onChange={(e) =>
                           setBadgeFormData({
@@ -500,7 +514,7 @@ export default function Dashboard() {
                       </label>
                       <input
                         type="text"
-                        placeholder="Unique identifier for this badge"
+                        placeholder="e.g., badge_001"
                         value={badgeFormData.badgeId}
                         onChange={(e) =>
                           setBadgeFormData({
@@ -586,7 +600,7 @@ export default function Dashboard() {
                       </label>
                       <input
                         type="number"
-                        placeholder="Points needed to earn this badge"
+                        placeholder="e.g., 100"
                         value={badgeFormData.requiredPoints}
                         onChange={(e) =>
                           setBadgeFormData({
@@ -606,7 +620,7 @@ export default function Dashboard() {
                       </label>
                       <input
                         type="number"
-                        placeholder="Maximum times this badge can be earned"
+                        placeholder="e.g., 5"
                         value={badgeFormData.maxEarnings}
                         onChange={(e) =>
                           setBadgeFormData({
