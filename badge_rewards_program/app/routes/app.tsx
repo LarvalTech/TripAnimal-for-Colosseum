@@ -1527,6 +1527,154 @@ export default function Dashboard() {
           </div>
         </div>
       )}
+
+      {/* Gallery View */}
+      {showGallery && (
+        <div className="min-h-screen bg-slate-50">
+          <div className="container mx-auto px-5 py-12">
+            <div className="flex justify-between items-center mb-12">
+              <h1 className="text-4xl font-bold text-black">Created Badges & Rewards</h1>
+              <button
+                onClick={() => setShowGallery(false)}
+                className="px-6 py-3 bg-slate-700 hover:bg-slate-600 text-white rounded-lg transition font-semibold"
+              >
+                ← Back to Dashboard
+              </button>
+            </div>
+
+            {/* Badges Section */}
+            {createdBadges.length > 0 && (
+              <div className="mb-12">
+                <h2 className="text-3xl font-bold text-black mb-8">Badges ({createdBadges.length})</h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {createdBadges.map((badge, index) => (
+                    <div
+                      key={index}
+                      className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition transform hover:scale-105"
+                    >
+                      <div className="bg-gradient-to-br from-emerald-50 to-teal-50 p-6 flex justify-center">
+                        <img
+                          src={badge.iconUri}
+                          alt={badge.name}
+                          className="w-32 h-32 object-cover rounded-lg shadow-md"
+                          onError={(e) => {
+                            (e.target as HTMLImageElement).src = 'https://via.placeholder.com/128?text=Badge';
+                          }}
+                        />
+                      </div>
+                      <div className="p-6">
+                        <h3 className="text-xl font-bold text-black mb-2">{badge.name}</h3>
+                        <p className="text-slate-600 text-sm mb-4">{badge.description}</p>
+                        <div className="space-y-3 border-t border-slate-200 pt-4">
+                          <div className="flex justify-between">
+                            <span className="text-slate-600 font-semibold">Badge ID:</span>
+                            <span className="text-black font-mono text-sm">{badge.badgeId}</span>
+                          </div>
+                          <div className="flex justify-between">
+                            <span className="text-slate-600 font-semibold">Required Points:</span>
+                            <span className="text-emerald-600 font-bold">{badge.requiredPoints}</span>
+                          </div>
+                          <div className="flex justify-between">
+                            <span className="text-slate-600 font-semibold">Max Earnings:</span>
+                            <span className="text-teal-600 font-bold">{badge.maxEarnings}</span>
+                          </div>
+                          <div className="flex justify-between">
+                            <span className="text-slate-600 font-semibold">Status:</span>
+                            <span className={`px-3 py-1 rounded-full text-sm font-semibold ${
+                              badge.isActive
+                                ? 'bg-emerald-100 text-emerald-700'
+                                : 'bg-slate-100 text-slate-700'
+                            }`}>
+                              {badge.isActive ? 'Active' : 'Inactive'}
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Rewards Section */}
+            {createdRewards.length > 0 && (
+              <div>
+                <h2 className="text-3xl font-bold text-black mb-8">Rewards ({createdRewards.length})</h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {createdRewards.map((reward, index) => (
+                    <div
+                      key={index}
+                      className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition transform hover:scale-105"
+                    >
+                      <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-6">
+                        <div className="flex items-center justify-between mb-4">
+                          <h3 className="text-xl font-bold text-black">{reward.name}</h3>
+                          <span className={`px-3 py-1 rounded-full text-xs font-bold ${
+                            reward.rewardType === '0'
+                              ? 'bg-blue-100 text-blue-700'
+                              : reward.rewardType === '1'
+                                ? 'bg-purple-100 text-purple-700'
+                                : 'bg-slate-100 text-slate-700'
+                          }`}>
+                            {reward.rewardType === '0' ? 'Token' : reward.rewardType === '1' ? 'NFT' : 'Other'}
+                          </span>
+                        </div>
+                        <p className="text-slate-600 text-sm mb-4">{reward.description}</p>
+                      </div>
+                      <div className="p-6">
+                        <div className="space-y-3">
+                          <div className="flex justify-between">
+                            <span className="text-slate-600 font-semibold">Reward ID:</span>
+                            <span className="text-black font-mono text-sm">{reward.rewardId}</span>
+                          </div>
+                          <div className="flex justify-between">
+                            <span className="text-slate-600 font-semibold">Badge ID:</span>
+                            <span className="text-black font-mono text-sm">{reward.badgeId}</span>
+                          </div>
+                          <div className="flex justify-between">
+                            <span className="text-slate-600 font-semibold">Value:</span>
+                            <span className="text-pink-600 font-bold text-lg">{reward.rewardValue}</span>
+                          </div>
+                          <div className="flex justify-between">
+                            <span className="text-slate-600 font-semibold">Status:</span>
+                            <span className={`px-3 py-1 rounded-full text-sm font-semibold ${
+                              reward.isActive
+                                ? 'bg-purple-100 text-purple-700'
+                                : 'bg-slate-100 text-slate-700'
+                            }`}>
+                              {reward.isActive ? 'Active' : 'Inactive'}
+                            </span>
+                          </div>
+                        </div>
+                        {reward.rewardType === '0' && (
+                          <div className="mt-4 pt-4 border-t border-slate-200">
+                            <p className="text-xs text-slate-500 font-mono break-all">
+                              Token: {reward.tokenMint}
+                            </p>
+                          </div>
+                        )}
+                        {reward.rewardType === '1' && (
+                          <div className="mt-4 pt-4 border-t border-slate-200">
+                            <p className="text-xs text-slate-500 font-mono break-all">
+                              NFT: {reward.nftMint}
+                            </p>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {createdBadges.length === 0 && createdRewards.length === 0 && (
+              <div className="bg-white rounded-xl shadow-2xl p-12 text-center">
+                <p className="text-slate-600 text-lg">No badges or rewards created yet.</p>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
     </>
   );
 }
