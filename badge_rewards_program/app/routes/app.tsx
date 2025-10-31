@@ -304,7 +304,7 @@ export default function Dashboard() {
                             badgeId: e.target.value,
                           })
                         }
-                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 text-slate-900"
                         required
                       />
                       <p className="text-xs text-slate-500 mt-1">
@@ -327,7 +327,7 @@ export default function Dashboard() {
                             name: e.target.value,
                           })
                         }
-                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 text-slate-900"
                         required
                       />
                     </div>
@@ -346,7 +346,7 @@ export default function Dashboard() {
                             description: e.target.value,
                           })
                         }
-                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 resize-none"
+                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 resize-none text-slate-900"
                         rows={4}
                         required
                       />
@@ -367,7 +367,7 @@ export default function Dashboard() {
                             iconUri: e.target.value,
                           })
                         }
-                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 text-slate-900"
                         required
                       />
                       <p className="text-xs text-slate-500 mt-1">
@@ -390,7 +390,7 @@ export default function Dashboard() {
                             requiredPoints: e.target.value,
                           })
                         }
-                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 text-slate-900"
                         required
                       />
                     </div>
@@ -410,7 +410,7 @@ export default function Dashboard() {
                             maxEarnings: e.target.value,
                           })
                         }
-                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 text-slate-900"
                         required
                       />
                     </div>
@@ -504,7 +504,7 @@ export default function Dashboard() {
                             badgeId: e.target.value,
                           })
                         }
-                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-slate-900"
                         required
                       />
                       <p className="text-xs text-slate-500 mt-1">
@@ -527,7 +527,7 @@ export default function Dashboard() {
                             name: e.target.value,
                           })
                         }
-                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-slate-900"
                         required
                       />
                     </div>
@@ -546,7 +546,7 @@ export default function Dashboard() {
                             description: e.target.value,
                           })
                         }
-                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
+                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none text-slate-900"
                         rows={4}
                         required
                       />
@@ -567,7 +567,7 @@ export default function Dashboard() {
                             iconUri: e.target.value,
                           })
                         }
-                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-slate-900"
                         required
                       />
                       <p className="text-xs text-slate-500 mt-1">
@@ -590,7 +590,7 @@ export default function Dashboard() {
                             requiredPoints: e.target.value,
                           })
                         }
-                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-slate-900"
                         required
                       />
                     </div>
@@ -610,7 +610,7 @@ export default function Dashboard() {
                             maxEarnings: e.target.value,
                           })
                         }
-                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-slate-900"
                         required
                       />
                     </div>
@@ -777,7 +777,7 @@ export default function Dashboard() {
                             badgeId: e.target.value,
                           })
                         }
-                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-slate-900"
                         required
                       />
                       <p className="text-xs text-slate-500 mt-1">
@@ -800,7 +800,7 @@ export default function Dashboard() {
                             rewardId: e.target.value,
                           })
                         }
-                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-slate-900"
                         required
                       />
                       <p className="text-xs text-slate-500 mt-1">
@@ -823,7 +823,7 @@ export default function Dashboard() {
                             name: e.target.value,
                           })
                         }
-                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-slate-900"
                         required
                       />
                     </div>
@@ -842,7 +842,7 @@ export default function Dashboard() {
                             description: e.target.value,
                           })
                         }
-                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 resize-none"
+                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 resize-none text-slate-900"
                         rows={4}
                         required
                       />
@@ -861,7 +861,7 @@ export default function Dashboard() {
                             rewardType: e.target.value,
                           })
                         }
-                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-slate-900"
                         required
                       >
                         <option value="0">Token</option>
@@ -888,7 +888,7 @@ export default function Dashboard() {
                             rewardValue: e.target.value,
                           })
                         }
-                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-slate-900"
                         required
                       />
                     </div>
@@ -908,7 +908,7 @@ export default function Dashboard() {
                             tokenMint: e.target.value,
                           })
                         }
-                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-slate-900"
                         required
                       />
                       <p className="text-xs text-slate-500 mt-1">
@@ -931,7 +931,7 @@ export default function Dashboard() {
                             nftMint: e.target.value,
                           })
                         }
-                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-slate-900"
                         required
                       />
                       <p className="text-xs text-slate-500 mt-1">
@@ -1028,7 +1028,7 @@ export default function Dashboard() {
                             badgeId: e.target.value,
                           })
                         }
-                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
+                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 text-slate-900"
                         required
                       />
                       <p className="text-xs text-slate-500 mt-1">
@@ -1051,7 +1051,7 @@ export default function Dashboard() {
                             rewardId: e.target.value,
                           })
                         }
-                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
+                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 text-slate-900"
                         required
                       />
                       <p className="text-xs text-slate-500 mt-1">
@@ -1074,7 +1074,7 @@ export default function Dashboard() {
                             name: e.target.value,
                           })
                         }
-                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
+                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 text-slate-900"
                         required
                       />
                     </div>
@@ -1093,7 +1093,7 @@ export default function Dashboard() {
                             description: e.target.value,
                           })
                         }
-                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 resize-none"
+                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 resize-none text-slate-900"
                         rows={4}
                         required
                       />
@@ -1112,7 +1112,7 @@ export default function Dashboard() {
                             rewardType: e.target.value,
                           })
                         }
-                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
+                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 text-slate-900"
                         required
                       >
                         <option value="0">Token</option>
@@ -1139,7 +1139,7 @@ export default function Dashboard() {
                             rewardValue: e.target.value,
                           })
                         }
-                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
+                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 text-slate-900"
                         required
                       />
                     </div>
@@ -1159,7 +1159,7 @@ export default function Dashboard() {
                             tokenMint: e.target.value,
                           })
                         }
-                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
+                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 text-slate-900"
                         required
                       />
                       <p className="text-xs text-slate-500 mt-1">
@@ -1182,7 +1182,7 @@ export default function Dashboard() {
                             nftMint: e.target.value,
                           })
                         }
-                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
+                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 text-slate-900"
                         required
                       />
                       <p className="text-xs text-slate-500 mt-1">
