@@ -9,7 +9,7 @@ export default function PlayerInterface() {
   const [showClaimModal, setShowClaimModal] = useState(false);
   const [selectedReward, setSelectedReward] = useState<any>(null);
   const [showSuccessModal, setShowSuccessModal] = useState(false);
-  const [stakedRewards, setStakedRewards] = useState<{[key: string]: {stakedAt: number, minPeriod: number}>({});
+  const [stakedRewards, setStakedRewards] = useState<Record<string, {stakedAt: number, minPeriod: number}>>({});
   const [showStakeModal, setShowStakeModal] = useState(false);
   const [selectedRewardToStake, setSelectedRewardToStake] = useState<any>(null);
   const [stakeMinPeriod, setStakeMinPeriod] = useState('3600');

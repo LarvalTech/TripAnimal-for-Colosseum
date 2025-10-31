@@ -441,7 +441,7 @@ export default function DemoFlow() {
                   type="text"
                   value={badgeFormData.badgeId}
                   onChange={(e) => handleBadgeInputChange('badgeId', e.target.value)}
-                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 text-black"
+                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 text-black bg-white"
                   placeholder="e.g., badge_001"
                 />
               </div>
@@ -451,7 +451,7 @@ export default function DemoFlow() {
                   type="text"
                   value={badgeFormData.name}
                   onChange={(e) => handleBadgeInputChange('name', e.target.value)}
-                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 text-black"
+                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 text-black bg-white"
                   placeholder="e.g., Mountain Explorer"
                 />
               </div>
@@ -480,7 +480,7 @@ export default function DemoFlow() {
                   type="number"
                   value={badgeFormData.requiredPoints}
                   onChange={(e) => handleBadgeInputChange('requiredPoints', e.target.value)}
-                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 text-black"
+                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 text-black bg-white"
                   placeholder="e.g., 100"
                 />
               </div>
@@ -490,7 +490,7 @@ export default function DemoFlow() {
                   type="number"
                   value={badgeFormData.maxEarnings}
                   onChange={(e) => handleBadgeInputChange('maxEarnings', e.target.value)}
-                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 text-black"
+                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 text-black bg-white"
                   placeholder="e.g., 5"
                 />
               </div>

@@ -308,7 +308,7 @@ export default function Dashboard() {
                             badgeId: e.target.value,
                           })
                         }
-                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 text-black"
+                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 text-black bg-white"
                         required
                       />
                       <p className="text-xs text-slate-500 mt-1">
@@ -331,7 +331,7 @@ export default function Dashboard() {
                             name: e.target.value,
                           })
                         }
-                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 text-black"
+                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 text-black bg-white"
                         required
                       />
                     </div>
@@ -371,7 +371,7 @@ export default function Dashboard() {
                             iconUri: e.target.value,
                           })
                         }
-                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 text-black"
+                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 text-black bg-white"
                         required
                       />
                       <p className="text-xs text-slate-500 mt-1">
@@ -394,7 +394,7 @@ export default function Dashboard() {
                             requiredPoints: e.target.value,
                           })
                         }
-                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 text-black"
+                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 text-black bg-white"
                         required
                       />
                     </div>
@@ -414,7 +414,7 @@ export default function Dashboard() {
                             maxEarnings: e.target.value,
                           })
                         }
-                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 text-black"
+                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 text-black bg-white"
                         required
                       />
                     </div>
