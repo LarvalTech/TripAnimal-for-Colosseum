@@ -435,7 +435,7 @@ export default function DemoFlow() {
                   type="text"
                   value={badgeFormData.badgeId}
                   onChange={(e) => handleBadgeInputChange('badgeId', e.target.value)}
-                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 text-slate-900"
                   placeholder="e.g., badge_001"
                 />
               </div>
@@ -445,7 +445,7 @@ export default function DemoFlow() {
                   type="text"
                   value={badgeFormData.name}
                   onChange={(e) => handleBadgeInputChange('name', e.target.value)}
-                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 text-slate-900"
                   placeholder="e.g., Mountain Explorer"
                 />
               </div>
@@ -454,7 +454,7 @@ export default function DemoFlow() {
                 <textarea
                   value={badgeFormData.description}
                   onChange={(e) => handleBadgeInputChange('description', e.target.value)}
-                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 h-24"
+                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 h-24 text-slate-900"
                   placeholder="Describe what visitors need to do to earn this badge"
                 />
               </div>
@@ -464,7 +464,7 @@ export default function DemoFlow() {
                   type="text"
                   value={badgeFormData.iconUri}
                   onChange={(e) => handleBadgeInputChange('iconUri', e.target.value)}
-                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 text-sm"
+                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 text-sm text-slate-900"
                   placeholder="https://example.com/badge-icon.png"
                 />
               </div>
@@ -474,7 +474,7 @@ export default function DemoFlow() {
                   type="number"
                   value={badgeFormData.requiredPoints}
                   onChange={(e) => handleBadgeInputChange('requiredPoints', e.target.value)}
-                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 text-slate-900"
                   placeholder="e.g., 100"
                 />
               </div>
@@ -484,7 +484,7 @@ export default function DemoFlow() {
                   type="number"
                   value={badgeFormData.maxEarnings}
                   onChange={(e) => handleBadgeInputChange('maxEarnings', e.target.value)}
-                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 text-slate-900"
                   placeholder="e.g., 5"
                 />
               </div>
@@ -567,7 +567,7 @@ export default function DemoFlow() {
                   type="text"
                   value={rewardFormData.badgeId}
                   onChange={(e) => handleRewardInputChange('badgeId', e.target.value)}
-                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-slate-900"
                   placeholder="e.g., badge_001"
                 />
               </div>
@@ -577,7 +577,7 @@ export default function DemoFlow() {
                   type="text"
                   value={rewardFormData.rewardId}
                   onChange={(e) => handleRewardInputChange('rewardId', e.target.value)}
-                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-slate-900"
                   placeholder="e.g., reward_001"
                 />
               </div>
@@ -587,7 +587,7 @@ export default function DemoFlow() {
                   type="text"
                   value={rewardFormData.name}
                   onChange={(e) => handleRewardInputChange('name', e.target.value)}
-                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-slate-900"
                   placeholder="e.g., 10 SOL Token"
                 />
               </div>
@@ -596,7 +596,7 @@ export default function DemoFlow() {
                 <select
                   value={rewardFormData.rewardType}
                   onChange={(e) => handleRewardInputChange('rewardType', e.target.value)}
-                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-slate-900"
                 >
                   <option value="0">Token</option>
                   <option value="1">NFT</option>
@@ -608,7 +608,7 @@ export default function DemoFlow() {
                 <textarea
                   value={rewardFormData.description}
                   onChange={(e) => handleRewardInputChange('description', e.target.value)}
-                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 h-24"
+                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 h-24 text-slate-900"
                   placeholder="Describe what the visitor receives"
                 />
               </div>
@@ -618,7 +618,7 @@ export default function DemoFlow() {
                   type="number"
                   value={rewardFormData.rewardValue}
                   onChange={(e) => handleRewardInputChange('rewardValue', e.target.value)}
-                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-slate-900"
                   placeholder="e.g., 10"
                 />
               </div>
@@ -628,7 +628,7 @@ export default function DemoFlow() {
                   type="text"
                   value={rewardFormData.tokenMint}
                   onChange={(e) => handleRewardInputChange('tokenMint', e.target.value)}
-                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-xs"
+                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-xs text-slate-900"
                   placeholder="Solana token mint address"
                 />
               </div>
@@ -638,7 +638,7 @@ export default function DemoFlow() {
                   type="text"
                   value={rewardFormData.nftMint}
                   onChange={(e) => handleRewardInputChange('nftMint', e.target.value)}
-                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-xs"
+                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-xs text-slate-900"
                   placeholder="Solana NFT mint address"
                 />
               </div>
