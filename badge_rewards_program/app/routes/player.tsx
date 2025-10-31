@@ -211,7 +211,7 @@ export default function PlayerInterface() {
 
                     {/* Badge Details */}
                     <div className="p-6">
-                      <h3 className="text-xl font-bold text-slate-900 mb-2">{badge.name}</h3>
+                      <h3 className="text-xl font-bold text-black mb-2">{badge.name}</h3>
                       <p className="text-slate-600 text-sm mb-4">{badge.description}</p>
 
                       <div className="space-y-2 mb-4">
@@ -394,7 +394,7 @@ export default function PlayerInterface() {
       {showClaimModal && selectedReward && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
           <div className="bg-white rounded-xl shadow-2xl max-w-md w-full p-8">
-            <h2 className="text-2xl font-bold text-slate-900 mb-6">Confirm Claim</h2>
+            <h2 className="text-2xl font-bold text-black mb-6">Confirm Claim</h2>
 
             <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-lg p-6 mb-6 border border-purple-200">
               <p className="text-slate-700 mb-4">
@@ -411,7 +411,7 @@ export default function PlayerInterface() {
             <div className="flex gap-4">
               <button
                 onClick={() => setShowClaimModal(false)}
-                className="flex-1 px-6 py-3 bg-slate-200 text-slate-900 rounded-lg font-semibold hover:bg-slate-300 transition"
+                className="flex-1 px-6 py-3 bg-slate-200 text-black rounded-lg font-semibold hover:bg-slate-300 transition"
               >
                 Cancel
               </button>
@@ -430,7 +430,7 @@ export default function PlayerInterface() {
       {showStakeModal && selectedRewardToStake && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
           <div className="bg-white rounded-xl shadow-2xl max-w-md w-full p-8">
-            <h2 className="text-2xl font-bold text-slate-900 mb-6">Stake Reward</h2>
+            <h2 className="text-2xl font-bold text-black mb-6">Stake Reward</h2>
 
             <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg p-6 mb-6 border border-blue-200">
               <p className="text-slate-700 mb-4">
@@ -445,14 +445,14 @@ export default function PlayerInterface() {
             </div>
 
             <div className="mb-6">
-              <label className="block text-sm font-semibold text-slate-900 mb-2">
+              <label className="block text-sm font-semibold text-black mb-2">
                 Minimum Stake Period (seconds)
               </label>
               <input
                 type="number"
                 value={stakeMinPeriod}
                 onChange={(e) => setStakeMinPeriod(e.target.value)}
-                className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-slate-900"
+                className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
                 placeholder="e.g., 3600 (1 hour)"
                 min="0"
               />
@@ -467,7 +467,7 @@ export default function PlayerInterface() {
                   setShowStakeModal(false);
                   setSelectedRewardToStake(null);
                 }}
-                className="flex-1 px-6 py-3 bg-slate-200 text-slate-900 rounded-lg font-semibold hover:bg-slate-300 transition"
+                className="flex-1 px-6 py-3 bg-slate-200 text-black rounded-lg font-semibold hover:bg-slate-300 transition"
               >
                 Cancel
               </button>
