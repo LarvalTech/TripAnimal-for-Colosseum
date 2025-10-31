@@ -37,6 +37,8 @@ interface RewardFormData {
   tokenMint: string;
   nftMint: string;
   isActive: boolean;
+  stakeInitially: boolean;
+  minStakePeriod: string;
 }
 
 export default function Dashboard() {
@@ -66,6 +68,8 @@ export default function Dashboard() {
     tokenMint: "",
     nftMint: "",
     isActive: false,
+    stakeInitially: false,
+    minStakePeriod: "0",
   });
   const [showRewardPreview, setShowRewardPreview] = useState(false);
 
@@ -963,6 +967,61 @@ export default function Dashboard() {
                     <p className="text-xs text-slate-500">
                       Inactive rewards cannot be claimed by visitors
                     </p>
+
+                    {/* Staking Section */}
+                    <div className="border-t-2 border-slate-200 pt-6 mt-6">
+                      <h3 className="text-lg font-bold text-slate-900 mb-4">Reward Staking (Optional)</h3>
+                      
+                      {/* Stake Initially Checkbox */}
+                      <div className="flex items-center gap-3 mb-4">
+                        <input
+                          type="checkbox"
+                          id="stakeInitially"
+                          checked={rewardFormData.stakeInitially}
+                          onChange={(e) =>
+                            setRewardFormData({
+                              ...rewardFormData,
+                              stakeInitially: e.target.checked,
+                            })
+                          }
+                          className="w-5 h-5 rounded border-slate-300"
+                        />
+                        <label
+                          htmlFor="stakeInitially"
+                          className="text-sm font-semibold text-slate-900"
+                        >
+                          Stake this reward initially
+                        </label>
+                      </div>
+                      <p className="text-xs text-slate-500 mb-4">
+                        If checked, the reward will be created in a staked (locked) state. You must unstake it before visitors can claim it.
+                      </p>
+
+                      {/* Min Stake Period */}
+                      {rewardFormData.stakeInitially && (
+                        <div>
+                          <label className="block text-sm font-semibold text-slate-900 mb-2">
+                            Minimum Stake Period (seconds)
+                          </label>
+                          <input
+                            type="number"
+                            placeholder="e.g., 86400 (1 day) or 0 (no minimum)"
+                            value={rewardFormData.minStakePeriod}
+                            onChange={(e) =>
+                              setRewardFormData({
+                                ...rewardFormData,
+                                minStakePeriod: e.target.value,
+                              })
+                            }
+                            className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-slate-900"
+                            min="0"
+                          />
+                          <p className="text-xs text-slate-500 mt-1">
+                            How long the reward must remain staked before you can unstake it. 0 = no minimum.
+                          </p>
+                        </div>
+                      )}
+                    </div>
 
                     {/* Submit Button */}
                     <div className="flex gap-4 pt-6">

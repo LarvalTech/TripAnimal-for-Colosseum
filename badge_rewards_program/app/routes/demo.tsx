@@ -20,6 +20,10 @@ interface Reward {
   tokenMint: string;
   nftMint: string;
   isActive: boolean;
+  stakeInitially?: boolean;
+  minStakePeriod?: string;
+  stakeStatus?: string;
+  stakedAt?: number;
 }
 
 export default function DemoFlow() {
@@ -46,6 +50,8 @@ export default function DemoFlow() {
     tokenMint: 'EPjFWaLb3hyccqaoro45VqkfmbTo7nksY62rq7mp5gJ',
     nftMint: '11111111111111111111111111111111',
     isActive: true,
+    stakeInitially: true,
+    minStakePeriod: '86400',
   });
 
   const [badges, setBadges] = useState<Badge[]>([]);
@@ -654,6 +660,45 @@ export default function DemoFlow() {
                 </label>
               </div>
             </div>
+
+            {/* Staking Section */}
+            <div className="border-t-2 border-slate-300 pt-6 mt-6">
+              <h3 className="text-lg font-bold text-slate-900 mb-4">Reward Staking (Optional)</h3>
+              <div className="grid grid-cols-2 gap-8">
+                <div className="col-span-2">
+                  <label className="flex items-center">
+                    <input
+                      type="checkbox"
+                      checked={rewardFormData.stakeInitially || false}
+                      onChange={(e) => handleRewardInputChange('stakeInitially', e.target.checked)}
+                      className="w-4 h-4 text-purple-600 rounded focus:ring-purple-500"
+                    />
+                    <span className="ml-3 text-sm font-medium text-slate-900">Stake this reward initially</span>
+                  </label>
+                  <p className="text-xs text-slate-500 mt-2">
+                    If checked, the reward will be created in a staked (locked) state. You must unstake it before visitors can claim it.
+                  </p>
+                </div>
+
+                {rewardFormData.stakeInitially && (
+                  <div className="col-span-2">
+                    <label className="block text-sm font-semibold text-slate-900 mb-2">Minimum Stake Period (seconds)</label>
+                    <input
+                      type="number"
+                      value={rewardFormData.minStakePeriod || '0'}
+                      onChange={(e) => handleRewardInputChange('minStakePeriod', e.target.value)}
+                      className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-slate-900"
+                      placeholder="e.g., 86400 (1 day) or 0 (no minimum)"
+                      min="0"
+                    />
+                    <p className="text-xs text-slate-500 mt-1">
+                      How long the reward must remain staked before you can unstake it. 0 = no minimum.
+                    </p>
+                  </div>
+                )}
+              </div>
+            </div>
+
             <div className="flex gap-4 mt-8">
               <button
                 onClick={() => {
