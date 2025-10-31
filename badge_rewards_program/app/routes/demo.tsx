@@ -20,6 +20,10 @@ interface Reward {
   tokenMint: string;
   nftMint: string;
   isActive: boolean;
+  stakeInitially?: boolean;
+  minStakePeriod?: string;
+  stakeStatus?: string;
+  stakedAt?: number;
 }
 
 export default function DemoFlow() {
@@ -46,6 +50,8 @@ export default function DemoFlow() {
     tokenMint: 'EPjFWaLb3hyccqaoro45VqkfmbTo7nksY62rq7mp5gJ',
     nftMint: '11111111111111111111111111111111',
     isActive: true,
+    stakeInitially: true,
+    minStakePeriod: '86400',
   });
 
   const [badges, setBadges] = useState<Badge[]>([]);
@@ -280,13 +286,13 @@ export default function DemoFlow() {
                         />
                       </div>
                       <div className="p-6">
-                        <h3 className="text-xl font-bold text-slate-900 mb-2">{badge.name}</h3>
+                        <h3 className="text-xl font-bold text-black mb-2">{badge.name}</h3>
                         <p className="text-slate-600 text-sm mb-4">{badge.description}</p>
                         
                         <div className="space-y-3 border-t border-slate-200 pt-4">
                           <div className="flex justify-between">
                             <span className="text-slate-600 font-semibold">Badge ID:</span>
-                            <span className="text-slate-900 font-mono text-sm">{badge.badgeId}</span>
+                            <span className="text-black font-mono text-sm">{badge.badgeId}</span>
                           </div>
                           <div className="flex justify-between">
                             <span className="text-slate-600 font-semibold">Required Points:</span>
@@ -326,7 +332,7 @@ export default function DemoFlow() {
                     >
                       <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-6">
                         <div className="flex items-center justify-between mb-4">
-                          <h3 className="text-xl font-bold text-slate-900">{reward.name}</h3>
+                          <h3 className="text-xl font-bold text-black">{reward.name}</h3>
                           <span className={`px-3 py-1 rounded-full text-xs font-bold ${
                             reward.rewardType === '0'
                               ? 'bg-blue-100 text-blue-700'
@@ -343,11 +349,11 @@ export default function DemoFlow() {
                         <div className="space-y-3">
                           <div className="flex justify-between">
                             <span className="text-slate-600 font-semibold">Reward ID:</span>
-                            <span className="text-slate-900 font-mono text-sm">{reward.rewardId}</span>
+                            <span className="text-black font-mono text-sm">{reward.rewardId}</span>
                           </div>
                           <div className="flex justify-between">
                             <span className="text-slate-600 font-semibold">Badge ID:</span>
-                            <span className="text-slate-900 font-mono text-sm">{reward.badgeId}</span>
+                            <span className="text-black font-mono text-sm">{reward.badgeId}</span>
                           </div>
                           <div className="flex justify-between">
                             <span className="text-slate-600 font-semibold">Value:</span>
@@ -402,7 +408,7 @@ export default function DemoFlow() {
                   <path d="M10.5 1.5H3.75A2.25 2.25 0 001.5 3.75v12.5A2.25 2.25 0 003.75 18.5h12.5a2.25 2.25 0 002.25-2.25V9.5m-15-4h12m-12 3h12m-12 3h6" stroke="currentColor" strokeWidth="1.5" fill="none" />
                 </svg>
               </div>
-              <h2 className="text-3xl font-bold text-slate-900 mb-4">Connect Your Wallet</h2>
+              <h2 className="text-3xl font-bold text-black mb-4">Connect Your Wallet</h2>
               <p className="text-slate-600 text-lg mb-8">
                 Connect your Solana wallet to start managing badges and rewards for your business.
               </p>
@@ -427,64 +433,64 @@ export default function DemoFlow() {
         {/* Step 2: Create Badge Form */}
         {currentStep === 2 && !showGallery && steps[currentStep] && (
           <div className="bg-white rounded-xl shadow-2xl p-12">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8">Create New Badge</h2>
+            <h2 className="text-3xl font-bold text-black mb-8">Create New Badge</h2>
             <div className="grid grid-cols-2 gap-8">
               <div>
-                <label className="block text-sm font-semibold text-slate-900 mb-2">Badge ID *</label>
+                <label className="block text-sm font-semibold text-black mb-2">Badge ID *</label>
                 <input
                   type="text"
                   value={badgeFormData.badgeId}
                   onChange={(e) => handleBadgeInputChange('badgeId', e.target.value)}
-                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 text-black"
                   placeholder="e.g., badge_001"
                 />
               </div>
               <div>
-                <label className="block text-sm font-semibold text-slate-900 mb-2">Badge Name *</label>
+                <label className="block text-sm font-semibold text-black mb-2">Badge Name *</label>
                 <input
                   type="text"
                   value={badgeFormData.name}
                   onChange={(e) => handleBadgeInputChange('name', e.target.value)}
-                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 text-black"
                   placeholder="e.g., Mountain Explorer"
                 />
               </div>
               <div className="col-span-2">
-                <label className="block text-sm font-semibold text-slate-900 mb-2">Description *</label>
+                <label className="block text-sm font-semibold text-black mb-2">Description *</label>
                 <textarea
                   value={badgeFormData.description}
                   onChange={(e) => handleBadgeInputChange('description', e.target.value)}
-                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 h-24"
+                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 h-24 text-black"
                   placeholder="Describe what visitors need to do to earn this badge"
                 />
               </div>
               <div className="col-span-2">
-                <label className="block text-sm font-semibold text-slate-900 mb-2">Icon URL *</label>
+                <label className="block text-sm font-semibold text-black mb-2">Icon URL *</label>
                 <input
                   type="text"
                   value={badgeFormData.iconUri}
                   onChange={(e) => handleBadgeInputChange('iconUri', e.target.value)}
-                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 text-sm"
+                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 text-sm text-black"
                   placeholder="https://example.com/badge-icon.png"
                 />
               </div>
               <div>
-                <label className="block text-sm font-semibold text-slate-900 mb-2">Required Points *</label>
+                <label className="block text-sm font-semibold text-black mb-2">Required Points *</label>
                 <input
                   type="number"
                   value={badgeFormData.requiredPoints}
                   onChange={(e) => handleBadgeInputChange('requiredPoints', e.target.value)}
-                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 text-black"
                   placeholder="e.g., 100"
                 />
               </div>
               <div>
-                <label className="block text-sm font-semibold text-slate-900 mb-2">Max Earnings *</label>
+                <label className="block text-sm font-semibold text-black mb-2">Max Earnings *</label>
                 <input
                   type="number"
                   value={badgeFormData.maxEarnings}
                   onChange={(e) => handleBadgeInputChange('maxEarnings', e.target.value)}
-                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 text-black"
                   placeholder="e.g., 5"
                 />
               </div>
@@ -496,7 +502,7 @@ export default function DemoFlow() {
                     onChange={(e) => handleBadgeInputChange('isActive', e.target.checked)}
                     className="w-4 h-4 text-emerald-600 rounded focus:ring-emerald-500"
                   />
-                  <span className="ml-3 text-sm font-medium text-slate-900">Make this badge active immediately</span>
+                  <span className="ml-3 text-sm font-medium text-black">Make this badge active immediately</span>
                 </label>
               </div>
             </div>
@@ -559,44 +565,44 @@ export default function DemoFlow() {
         {/* Step 5: Create Reward Form */}
         {currentStep === 5 && !showGallery && steps[currentStep] && (
           <div className="bg-white rounded-xl shadow-2xl p-12">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8">Create New Reward</h2>
+            <h2 className="text-3xl font-bold text-black mb-8">Create New Reward</h2>
             <div className="grid grid-cols-2 gap-8">
               <div>
-                <label className="block text-sm font-semibold text-slate-900 mb-2">Badge ID *</label>
+                <label className="block text-sm font-semibold text-black mb-2">Badge ID *</label>
                 <input
                   type="text"
                   value={rewardFormData.badgeId}
                   onChange={(e) => handleRewardInputChange('badgeId', e.target.value)}
-                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-black"
                   placeholder="e.g., badge_001"
                 />
               </div>
               <div>
-                <label className="block text-sm font-semibold text-slate-900 mb-2">Reward ID *</label>
+                <label className="block text-sm font-semibold text-black mb-2">Reward ID *</label>
                 <input
                   type="text"
                   value={rewardFormData.rewardId}
                   onChange={(e) => handleRewardInputChange('rewardId', e.target.value)}
-                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-black"
                   placeholder="e.g., reward_001"
                 />
               </div>
               <div>
-                <label className="block text-sm font-semibold text-slate-900 mb-2">Reward Name *</label>
+                <label className="block text-sm font-semibold text-black mb-2">Reward Name *</label>
                 <input
                   type="text"
                   value={rewardFormData.name}
                   onChange={(e) => handleRewardInputChange('name', e.target.value)}
-                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-black"
                   placeholder="e.g., 10 SOL Token"
                 />
               </div>
               <div>
-                <label className="block text-sm font-semibold text-slate-900 mb-2">Reward Type *</label>
+                <label className="block text-sm font-semibold text-black mb-2">Reward Type *</label>
                 <select
                   value={rewardFormData.rewardType}
                   onChange={(e) => handleRewardInputChange('rewardType', e.target.value)}
-                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-black"
                 >
                   <option value="0">Token</option>
                   <option value="1">NFT</option>
@@ -604,41 +610,41 @@ export default function DemoFlow() {
                 </select>
               </div>
               <div className="col-span-2">
-                <label className="block text-sm font-semibold text-slate-900 mb-2">Description *</label>
+                <label className="block text-sm font-semibold text-black mb-2">Description *</label>
                 <textarea
                   value={rewardFormData.description}
                   onChange={(e) => handleRewardInputChange('description', e.target.value)}
-                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 h-24"
+                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 h-24 text-black"
                   placeholder="Describe what the visitor receives"
                 />
               </div>
               <div>
-                <label className="block text-sm font-semibold text-slate-900 mb-2">Reward Value *</label>
+                <label className="block text-sm font-semibold text-black mb-2">Reward Value *</label>
                 <input
                   type="number"
                   value={rewardFormData.rewardValue}
                   onChange={(e) => handleRewardInputChange('rewardValue', e.target.value)}
-                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-black"
                   placeholder="e.g., 10"
                 />
               </div>
               <div>
-                <label className="block text-sm font-semibold text-slate-900 mb-2">Token Mint *</label>
+                <label className="block text-sm font-semibold text-black mb-2">Token Mint *</label>
                 <input
                   type="text"
                   value={rewardFormData.tokenMint}
                   onChange={(e) => handleRewardInputChange('tokenMint', e.target.value)}
-                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-xs"
+                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-xs text-black"
                   placeholder="Solana token mint address"
                 />
               </div>
               <div>
-                <label className="block text-sm font-semibold text-slate-900 mb-2">NFT Mint *</label>
+                <label className="block text-sm font-semibold text-black mb-2">NFT Mint *</label>
                 <input
                   type="text"
                   value={rewardFormData.nftMint}
                   onChange={(e) => handleRewardInputChange('nftMint', e.target.value)}
-                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-xs"
+                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-xs text-black"
                   placeholder="Solana NFT mint address"
                 />
               </div>
@@ -650,10 +656,49 @@ export default function DemoFlow() {
                     onChange={(e) => handleRewardInputChange('isActive', e.target.checked)}
                     className="w-4 h-4 text-purple-600 rounded focus:ring-purple-500"
                   />
-                  <span className="ml-3 text-sm font-medium text-slate-900">Make this reward active immediately</span>
+                  <span className="ml-3 text-sm font-medium text-black">Make this reward active immediately</span>
                 </label>
               </div>
             </div>
+
+            {/* Staking Section */}
+            <div className="border-t-2 border-slate-300 pt-6 mt-6">
+              <h3 className="text-lg font-bold text-black mb-4">Reward Staking (Optional)</h3>
+              <div className="grid grid-cols-2 gap-8">
+                <div className="col-span-2">
+                  <label className="flex items-center">
+                    <input
+                      type="checkbox"
+                      checked={rewardFormData.stakeInitially || false}
+                      onChange={(e) => handleRewardInputChange('stakeInitially', e.target.checked)}
+                      className="w-4 h-4 text-purple-600 rounded focus:ring-purple-500"
+                    />
+                    <span className="ml-3 text-sm font-medium text-black">Stake this reward initially</span>
+                  </label>
+                  <p className="text-xs text-slate-500 mt-2">
+                    If checked, the reward will be created in a staked (locked) state. You must unstake it before visitors can claim it.
+                  </p>
+                </div>
+
+                {rewardFormData.stakeInitially && (
+                  <div className="col-span-2">
+                    <label className="block text-sm font-semibold text-black mb-2">Minimum Stake Period (seconds)</label>
+                    <input
+                      type="number"
+                      value={rewardFormData.minStakePeriod || '0'}
+                      onChange={(e) => handleRewardInputChange('minStakePeriod', e.target.value)}
+                      className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-black"
+                      placeholder="e.g., 86400 (1 day) or 0 (no minimum)"
+                      min="0"
+                    />
+                    <p className="text-xs text-slate-500 mt-1">
+                      How long the reward must remain staked before you can unstake it. 0 = no minimum.
+                    </p>
+                  </div>
+                )}
+              </div>
+            </div>
+
             <div className="flex gap-4 mt-8">
               <button
                 onClick={() => {
@@ -723,7 +768,7 @@ export default function DemoFlow() {
       {showBadgeReview && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
           <div className="bg-white rounded-xl shadow-2xl max-w-md w-full p-8">
-            <h2 className="text-2xl font-bold text-slate-900 mb-6">Review Your Badge</h2>
+            <h2 className="text-2xl font-bold text-black mb-6">Review Your Badge</h2>
 
             <div className="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-lg p-6 mb-6 border border-emerald-200">
               <div className="flex justify-center mb-6">
@@ -740,7 +785,7 @@ export default function DemoFlow() {
               <div className="space-y-4">
                 <div>
                   <p className="text-xs font-semibold text-slate-600 uppercase tracking-wide">Badge Name</p>
-                  <p className="text-xl font-bold text-slate-900">{badgeFormData.name}</p>
+                  <p className="text-xl font-bold text-black">{badgeFormData.name}</p>
                 </div>
 
                 <div>
@@ -782,7 +827,7 @@ export default function DemoFlow() {
               </button>
               <button
                 onClick={() => setShowBadgeReview(false)}
-                className="flex-1 px-6 py-3 bg-slate-200 text-slate-900 rounded-lg font-semibold hover:bg-slate-300 transition"
+                className="flex-1 px-6 py-3 bg-slate-200 text-black rounded-lg font-semibold hover:bg-slate-300 transition"
               >
                 Edit
               </button>
@@ -795,13 +840,13 @@ export default function DemoFlow() {
       {showRewardReview && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
           <div className="bg-white rounded-xl shadow-2xl max-w-md w-full p-8">
-            <h2 className="text-2xl font-bold text-slate-900 mb-6">Review Your Reward</h2>
+            <h2 className="text-2xl font-bold text-black mb-6">Review Your Reward</h2>
 
             <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-lg p-6 mb-6 border border-purple-200">
               <div className="space-y-4">
                 <div>
                   <p className="text-xs font-semibold text-slate-600 uppercase tracking-wide">Reward Name</p>
-                  <p className="text-xl font-bold text-slate-900">{rewardFormData.name}</p>
+                  <p className="text-xl font-bold text-black">{rewardFormData.name}</p>
                 </div>
 
                 <div>
@@ -850,7 +895,7 @@ export default function DemoFlow() {
               </button>
               <button
                 onClick={() => setShowRewardReview(false)}
-                className="flex-1 px-6 py-3 bg-slate-200 text-slate-900 rounded-lg font-semibold hover:bg-slate-300 transition"
+                className="flex-1 px-6 py-3 bg-slate-200 text-black rounded-lg font-semibold hover:bg-slate-300 transition"
               >
                 Edit
               </button>

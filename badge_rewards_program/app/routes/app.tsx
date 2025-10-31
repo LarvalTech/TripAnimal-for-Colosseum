@@ -37,6 +37,8 @@ interface RewardFormData {
   tokenMint: string;
   nftMint: string;
   isActive: boolean;
+  stakeInitially: boolean;
+  minStakePeriod: string;
 }
 
 export default function Dashboard() {
@@ -66,6 +68,8 @@ export default function Dashboard() {
     tokenMint: "",
     nftMint: "",
     isActive: false,
+    stakeInitially: false,
+    minStakePeriod: "0",
   });
   const [showRewardPreview, setShowRewardPreview] = useState(false);
 
@@ -75,7 +79,7 @@ export default function Dashboard() {
       <div className="min-h-screen bg-slate-50">
         <Header />
         <div className="container mx-auto px-5 py-20 text-center">
-          <h1 className="text-3xl font-bold text-slate-900 mb-4">
+          <h1 className="text-3xl font-bold text-black mb-4">
             Please Connect Your Wallet
           </h1>
           <p className="text-slate-600 mb-8">
@@ -144,7 +148,7 @@ export default function Dashboard() {
         <div className="container mx-auto px-5 py-12">
           {/* Dashboard Header */}
           <div className="mb-8">
-            <h1 className="text-4xl font-bold text-slate-900 mb-2">
+            <h1 className="text-4xl font-bold text-black mb-2">
               Dashboard
             </h1>
             <p className="text-slate-600">
@@ -169,7 +173,7 @@ export default function Dashboard() {
               className={`px-6 py-3 font-semibold transition ${
                 activeTab === "badges"
                   ? "text-emerald-600 border-b-2 border-emerald-600"
-                  : "text-slate-600 hover:text-slate-900"
+                  : "text-slate-600 hover:text-black"
               }`}
             >
               Manage Badges
@@ -182,7 +186,7 @@ export default function Dashboard() {
               className={`px-6 py-3 font-semibold transition ${
                 activeTab === "rewards"
                   ? "text-emerald-600 border-b-2 border-emerald-600"
-                  : "text-slate-600 hover:text-slate-900"
+                  : "text-slate-600 hover:text-black"
               }`}
             >
               Manage Rewards
@@ -211,7 +215,7 @@ export default function Dashboard() {
                         />
                       </svg>
                     </div>
-                    <h3 className="text-xl font-bold text-slate-900 mb-3">
+                    <h3 className="text-xl font-bold text-black mb-3">
                       Create New Badge
                     </h3>
                     <p className="text-slate-600 mb-6">
@@ -243,7 +247,7 @@ export default function Dashboard() {
                         />
                       </svg>
                     </div>
-                    <h3 className="text-xl font-bold text-slate-900 mb-3">
+                    <h3 className="text-xl font-bold text-black mb-3">
                       Update Badge
                     </h3>
                     <p className="text-slate-600 mb-6">
@@ -268,14 +272,14 @@ export default function Dashboard() {
                       <span>← Back</span>
                     </button>
                   </div>
-                  <h2 className="text-2xl font-bold text-slate-900 mb-6">
+                  <h2 className="text-2xl font-bold text-black mb-6">
                     Create New Badge
                   </h2>
 
                   <form onSubmit={handleBadgePreview} className="space-y-6">
                     {/* Owner Field */}
                     <div>
-                      <label className="block text-sm font-semibold text-slate-900 mb-2">
+                      <label className="block text-sm font-semibold text-black mb-2">
                         Owner (Your Wallet)
                       </label>
                       <input
@@ -291,7 +295,7 @@ export default function Dashboard() {
 
                     {/* Badge ID */}
                     <div>
-                      <label className="block text-sm font-semibold text-slate-900 mb-2">
+                      <label className="block text-sm font-semibold text-black mb-2">
                         Badge ID *
                       </label>
                       <input
@@ -304,7 +308,7 @@ export default function Dashboard() {
                             badgeId: e.target.value,
                           })
                         }
-                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 text-black"
                         required
                       />
                       <p className="text-xs text-slate-500 mt-1">
@@ -314,7 +318,7 @@ export default function Dashboard() {
 
                     {/* Badge Name */}
                     <div>
-                      <label className="block text-sm font-semibold text-slate-900 mb-2">
+                      <label className="block text-sm font-semibold text-black mb-2">
                         Badge Name *
                       </label>
                       <input
@@ -327,14 +331,14 @@ export default function Dashboard() {
                             name: e.target.value,
                           })
                         }
-                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 text-black"
                         required
                       />
                     </div>
 
                     {/* Description */}
                     <div>
-                      <label className="block text-sm font-semibold text-slate-900 mb-2">
+                      <label className="block text-sm font-semibold text-black mb-2">
                         Description *
                       </label>
                       <textarea
@@ -346,7 +350,7 @@ export default function Dashboard() {
                             description: e.target.value,
                           })
                         }
-                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 resize-none"
+                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 resize-none text-black"
                         rows={4}
                         required
                       />
@@ -354,7 +358,7 @@ export default function Dashboard() {
 
                     {/* Icon URL */}
                     <div>
-                      <label className="block text-sm font-semibold text-slate-900 mb-2">
+                      <label className="block text-sm font-semibold text-black mb-2">
                         Icon URL *
                       </label>
                       <input
@@ -367,7 +371,7 @@ export default function Dashboard() {
                             iconUri: e.target.value,
                           })
                         }
-                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 text-black"
                         required
                       />
                       <p className="text-xs text-slate-500 mt-1">
@@ -377,7 +381,7 @@ export default function Dashboard() {
 
                     {/* Required Points */}
                     <div>
-                      <label className="block text-sm font-semibold text-slate-900 mb-2">
+                      <label className="block text-sm font-semibold text-black mb-2">
                         Required Points *
                       </label>
                       <input
@@ -390,14 +394,14 @@ export default function Dashboard() {
                             requiredPoints: e.target.value,
                           })
                         }
-                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 text-black"
                         required
                       />
                     </div>
 
                     {/* Max Earnings */}
                     <div>
-                      <label className="block text-sm font-semibold text-slate-900 mb-2">
+                      <label className="block text-sm font-semibold text-black mb-2">
                         Max Earnings *
                       </label>
                       <input
@@ -410,7 +414,7 @@ export default function Dashboard() {
                             maxEarnings: e.target.value,
                           })
                         }
-                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 text-black"
                         required
                       />
                     </div>
@@ -431,7 +435,7 @@ export default function Dashboard() {
                       />
                       <label
                         htmlFor="isActive"
-                        className="text-sm font-semibold text-slate-900"
+                        className="text-sm font-semibold text-black"
                       >
                         Make this badge active immediately
                       </label>
@@ -451,7 +455,7 @@ export default function Dashboard() {
                       <button
                         type="button"
                         onClick={() => setActiveForm(null)}
-                        className="flex-1 px-6 py-3 bg-slate-200 text-slate-900 rounded-lg font-semibold hover:bg-slate-300 transition"
+                        className="flex-1 px-6 py-3 bg-slate-200 text-black rounded-lg font-semibold hover:bg-slate-300 transition"
                       >
                         Cancel
                       </button>
@@ -468,14 +472,14 @@ export default function Dashboard() {
                       <span>← Back</span>
                     </button>
                   </div>
-                  <h2 className="text-2xl font-bold text-slate-900 mb-6">
+                  <h2 className="text-2xl font-bold text-black mb-6">
                     Update Badge
                   </h2>
 
                   <form onSubmit={handleBadgePreview} className="space-y-6">
                     {/* Owner Field */}
                     <div>
-                      <label className="block text-sm font-semibold text-slate-900 mb-2">
+                      <label className="block text-sm font-semibold text-black mb-2">
                         Owner (Your Wallet)
                       </label>
                       <input
@@ -491,7 +495,7 @@ export default function Dashboard() {
 
                     {/* Badge ID */}
                     <div>
-                      <label className="block text-sm font-semibold text-slate-900 mb-2">
+                      <label className="block text-sm font-semibold text-black mb-2">
                         Badge ID *
                       </label>
                       <input
@@ -504,7 +508,7 @@ export default function Dashboard() {
                             badgeId: e.target.value,
                           })
                         }
-                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
                         required
                       />
                       <p className="text-xs text-slate-500 mt-1">
@@ -514,7 +518,7 @@ export default function Dashboard() {
 
                     {/* Badge Name */}
                     <div>
-                      <label className="block text-sm font-semibold text-slate-900 mb-2">
+                      <label className="block text-sm font-semibold text-black mb-2">
                         Badge Name *
                       </label>
                       <input
@@ -527,14 +531,14 @@ export default function Dashboard() {
                             name: e.target.value,
                           })
                         }
-                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
                         required
                       />
                     </div>
 
                     {/* Description */}
                     <div>
-                      <label className="block text-sm font-semibold text-slate-900 mb-2">
+                      <label className="block text-sm font-semibold text-black mb-2">
                         Description *
                       </label>
                       <textarea
@@ -546,7 +550,7 @@ export default function Dashboard() {
                             description: e.target.value,
                           })
                         }
-                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
+                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none text-black"
                         rows={4}
                         required
                       />
@@ -554,7 +558,7 @@ export default function Dashboard() {
 
                     {/* Icon URL */}
                     <div>
-                      <label className="block text-sm font-semibold text-slate-900 mb-2">
+                      <label className="block text-sm font-semibold text-black mb-2">
                         Icon URL *
                       </label>
                       <input
@@ -567,7 +571,7 @@ export default function Dashboard() {
                             iconUri: e.target.value,
                           })
                         }
-                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
                         required
                       />
                       <p className="text-xs text-slate-500 mt-1">
@@ -577,7 +581,7 @@ export default function Dashboard() {
 
                     {/* Required Points */}
                     <div>
-                      <label className="block text-sm font-semibold text-slate-900 mb-2">
+                      <label className="block text-sm font-semibold text-black mb-2">
                         Required Points *
                       </label>
                       <input
@@ -590,14 +594,14 @@ export default function Dashboard() {
                             requiredPoints: e.target.value,
                           })
                         }
-                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
                         required
                       />
                     </div>
 
                     {/* Max Earnings */}
                     <div>
-                      <label className="block text-sm font-semibold text-slate-900 mb-2">
+                      <label className="block text-sm font-semibold text-black mb-2">
                         Max Earnings *
                       </label>
                       <input
@@ -610,7 +614,7 @@ export default function Dashboard() {
                             maxEarnings: e.target.value,
                           })
                         }
-                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
                         required
                       />
                     </div>
@@ -631,7 +635,7 @@ export default function Dashboard() {
                       />
                       <label
                         htmlFor="isActive"
-                        className="text-sm font-semibold text-slate-900"
+                        className="text-sm font-semibold text-black"
                       >
                         Make this badge active immediately
                       </label>
@@ -651,7 +655,7 @@ export default function Dashboard() {
                       <button
                         type="button"
                         onClick={() => setActiveForm(null)}
-                        className="flex-1 px-6 py-3 bg-slate-200 text-slate-900 rounded-lg font-semibold hover:bg-slate-300 transition"
+                        className="flex-1 px-6 py-3 bg-slate-200 text-black rounded-lg font-semibold hover:bg-slate-300 transition"
                       >
                         Cancel
                       </button>
@@ -684,7 +688,7 @@ export default function Dashboard() {
                         />
                       </svg>
                     </div>
-                    <h3 className="text-xl font-bold text-slate-900 mb-3">
+                    <h3 className="text-xl font-bold text-black mb-3">
                       Create New Reward
                     </h3>
                     <p className="text-slate-600 mb-6">
@@ -716,7 +720,7 @@ export default function Dashboard() {
                         />
                       </svg>
                     </div>
-                    <h3 className="text-xl font-bold text-slate-900 mb-3">
+                    <h3 className="text-xl font-bold text-black mb-3">
                       Update Reward
                     </h3>
                     <p className="text-slate-600 mb-6">
@@ -741,14 +745,14 @@ export default function Dashboard() {
                       <span>← Back</span>
                     </button>
                   </div>
-                  <h2 className="text-2xl font-bold text-slate-900 mb-6">
+                  <h2 className="text-2xl font-bold text-black mb-6">
                     Create New Reward
                   </h2>
 
                   <form onSubmit={handleRewardPreview} className="space-y-6">
                     {/* Owner Field */}
                     <div>
-                      <label className="block text-sm font-semibold text-slate-900 mb-2">
+                      <label className="block text-sm font-semibold text-black mb-2">
                         Owner (Your Wallet)
                       </label>
                       <input
@@ -764,7 +768,7 @@ export default function Dashboard() {
 
                     {/* Badge ID */}
                     <div>
-                      <label className="block text-sm font-semibold text-slate-900 mb-2">
+                      <label className="block text-sm font-semibold text-black mb-2">
                         Badge ID *
                       </label>
                       <input
@@ -777,7 +781,7 @@ export default function Dashboard() {
                             badgeId: e.target.value,
                           })
                         }
-                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-black"
                         required
                       />
                       <p className="text-xs text-slate-500 mt-1">
@@ -787,7 +791,7 @@ export default function Dashboard() {
 
                     {/* Reward ID */}
                     <div>
-                      <label className="block text-sm font-semibold text-slate-900 mb-2">
+                      <label className="block text-sm font-semibold text-black mb-2">
                         Reward ID *
                       </label>
                       <input
@@ -800,7 +804,7 @@ export default function Dashboard() {
                             rewardId: e.target.value,
                           })
                         }
-                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-black"
                         required
                       />
                       <p className="text-xs text-slate-500 mt-1">
@@ -810,7 +814,7 @@ export default function Dashboard() {
 
                     {/* Reward Name */}
                     <div>
-                      <label className="block text-sm font-semibold text-slate-900 mb-2">
+                      <label className="block text-sm font-semibold text-black mb-2">
                         Reward Name *
                       </label>
                       <input
@@ -823,14 +827,14 @@ export default function Dashboard() {
                             name: e.target.value,
                           })
                         }
-                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-black"
                         required
                       />
                     </div>
 
                     {/* Description */}
                     <div>
-                      <label className="block text-sm font-semibold text-slate-900 mb-2">
+                      <label className="block text-sm font-semibold text-black mb-2">
                         Description *
                       </label>
                       <textarea
@@ -842,7 +846,7 @@ export default function Dashboard() {
                             description: e.target.value,
                           })
                         }
-                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 resize-none"
+                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 resize-none text-black"
                         rows={4}
                         required
                       />
@@ -850,7 +854,7 @@ export default function Dashboard() {
 
                     {/* Reward Type */}
                     <div>
-                      <label className="block text-sm font-semibold text-slate-900 mb-2">
+                      <label className="block text-sm font-semibold text-black mb-2">
                         Reward Type *
                       </label>
                       <select
@@ -861,7 +865,7 @@ export default function Dashboard() {
                             rewardType: e.target.value,
                           })
                         }
-                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-black"
                         required
                       >
                         <option value="0">Token</option>
@@ -875,7 +879,7 @@ export default function Dashboard() {
 
                     {/* Reward Value */}
                     <div>
-                      <label className="block text-sm font-semibold text-slate-900 mb-2">
+                      <label className="block text-sm font-semibold text-black mb-2">
                         Reward Value *
                       </label>
                       <input
@@ -888,14 +892,14 @@ export default function Dashboard() {
                             rewardValue: e.target.value,
                           })
                         }
-                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-black"
                         required
                       />
                     </div>
 
                     {/* Token Mint */}
                     <div>
-                      <label className="block text-sm font-semibold text-slate-900 mb-2">
+                      <label className="block text-sm font-semibold text-black mb-2">
                         Token Mint *
                       </label>
                       <input
@@ -908,7 +912,7 @@ export default function Dashboard() {
                             tokenMint: e.target.value,
                           })
                         }
-                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-black"
                         required
                       />
                       <p className="text-xs text-slate-500 mt-1">
@@ -918,7 +922,7 @@ export default function Dashboard() {
 
                     {/* NFT Mint */}
                     <div>
-                      <label className="block text-sm font-semibold text-slate-900 mb-2">
+                      <label className="block text-sm font-semibold text-black mb-2">
                         NFT Mint *
                       </label>
                       <input
@@ -931,7 +935,7 @@ export default function Dashboard() {
                             nftMint: e.target.value,
                           })
                         }
-                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-black"
                         required
                       />
                       <p className="text-xs text-slate-500 mt-1">
@@ -955,7 +959,7 @@ export default function Dashboard() {
                       />
                       <label
                         htmlFor="isActive"
-                        className="text-sm font-semibold text-slate-900"
+                        className="text-sm font-semibold text-black"
                       >
                         Make this reward active immediately
                       </label>
@@ -963,6 +967,61 @@ export default function Dashboard() {
                     <p className="text-xs text-slate-500">
                       Inactive rewards cannot be claimed by visitors
                     </p>
+
+                    {/* Staking Section */}
+                    <div className="border-t-2 border-slate-200 pt-6 mt-6">
+                      <h3 className="text-lg font-bold text-black mb-4">Reward Staking (Optional)</h3>
+                      
+                      {/* Stake Initially Checkbox */}
+                      <div className="flex items-center gap-3 mb-4">
+                        <input
+                          type="checkbox"
+                          id="stakeInitially"
+                          checked={rewardFormData.stakeInitially}
+                          onChange={(e) =>
+                            setRewardFormData({
+                              ...rewardFormData,
+                              stakeInitially: e.target.checked,
+                            })
+                          }
+                          className="w-5 h-5 rounded border-slate-300"
+                        />
+                        <label
+                          htmlFor="stakeInitially"
+                          className="text-sm font-semibold text-black"
+                        >
+                          Stake this reward initially
+                        </label>
+                      </div>
+                      <p className="text-xs text-slate-500 mb-4">
+                        If checked, the reward will be created in a staked (locked) state. You must unstake it before visitors can claim it.
+                      </p>
+
+                      {/* Min Stake Period */}
+                      {rewardFormData.stakeInitially && (
+                        <div>
+                          <label className="block text-sm font-semibold text-black mb-2">
+                            Minimum Stake Period (seconds)
+                          </label>
+                          <input
+                            type="number"
+                            placeholder="e.g., 86400 (1 day) or 0 (no minimum)"
+                            value={rewardFormData.minStakePeriod}
+                            onChange={(e) =>
+                              setRewardFormData({
+                                ...rewardFormData,
+                                minStakePeriod: e.target.value,
+                              })
+                            }
+                            className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-black"
+                            min="0"
+                          />
+                          <p className="text-xs text-slate-500 mt-1">
+                            How long the reward must remain staked before you can unstake it. 0 = no minimum.
+                          </p>
+                        </div>
+                      )}
+                    </div>
 
                     {/* Submit Button */}
                     <div className="flex gap-4 pt-6">
@@ -975,7 +1034,7 @@ export default function Dashboard() {
                       <button
                         type="button"
                         onClick={() => setActiveForm(null)}
-                        className="flex-1 px-6 py-3 bg-slate-200 text-slate-900 rounded-lg font-semibold hover:bg-slate-300 transition"
+                        className="flex-1 px-6 py-3 bg-slate-200 text-black rounded-lg font-semibold hover:bg-slate-300 transition"
                       >
                         Cancel
                       </button>
@@ -992,14 +1051,14 @@ export default function Dashboard() {
                       <span>← Back</span>
                     </button>
                   </div>
-                  <h2 className="text-2xl font-bold text-slate-900 mb-6">
+                  <h2 className="text-2xl font-bold text-black mb-6">
                     Update Reward
                   </h2>
 
                   <form onSubmit={handleRewardPreview} className="space-y-6">
                     {/* Owner Field */}
                     <div>
-                      <label className="block text-sm font-semibold text-slate-900 mb-2">
+                      <label className="block text-sm font-semibold text-black mb-2">
                         Owner (Your Wallet)
                       </label>
                       <input
@@ -1015,7 +1074,7 @@ export default function Dashboard() {
 
                     {/* Badge ID */}
                     <div>
-                      <label className="block text-sm font-semibold text-slate-900 mb-2">
+                      <label className="block text-sm font-semibold text-black mb-2">
                         Badge ID *
                       </label>
                       <input
@@ -1028,7 +1087,7 @@ export default function Dashboard() {
                             badgeId: e.target.value,
                           })
                         }
-                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
+                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 text-black"
                         required
                       />
                       <p className="text-xs text-slate-500 mt-1">
@@ -1038,7 +1097,7 @@ export default function Dashboard() {
 
                     {/* Reward ID */}
                     <div>
-                      <label className="block text-sm font-semibold text-slate-900 mb-2">
+                      <label className="block text-sm font-semibold text-black mb-2">
                         Reward ID *
                       </label>
                       <input
@@ -1051,7 +1110,7 @@ export default function Dashboard() {
                             rewardId: e.target.value,
                           })
                         }
-                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
+                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 text-black"
                         required
                       />
                       <p className="text-xs text-slate-500 mt-1">
@@ -1061,7 +1120,7 @@ export default function Dashboard() {
 
                     {/* Reward Name */}
                     <div>
-                      <label className="block text-sm font-semibold text-slate-900 mb-2">
+                      <label className="block text-sm font-semibold text-black mb-2">
                         Reward Name *
                       </label>
                       <input
@@ -1074,14 +1133,14 @@ export default function Dashboard() {
                             name: e.target.value,
                           })
                         }
-                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
+                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 text-black"
                         required
                       />
                     </div>
 
                     {/* Description */}
                     <div>
-                      <label className="block text-sm font-semibold text-slate-900 mb-2">
+                      <label className="block text-sm font-semibold text-black mb-2">
                         Description *
                       </label>
                       <textarea
@@ -1093,7 +1152,7 @@ export default function Dashboard() {
                             description: e.target.value,
                           })
                         }
-                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 resize-none"
+                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 resize-none text-black"
                         rows={4}
                         required
                       />
@@ -1101,7 +1160,7 @@ export default function Dashboard() {
 
                     {/* Reward Type */}
                     <div>
-                      <label className="block text-sm font-semibold text-slate-900 mb-2">
+                      <label className="block text-sm font-semibold text-black mb-2">
                         Reward Type *
                       </label>
                       <select
@@ -1112,7 +1171,7 @@ export default function Dashboard() {
                             rewardType: e.target.value,
                           })
                         }
-                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
+                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 text-black"
                         required
                       >
                         <option value="0">Token</option>
@@ -1126,7 +1185,7 @@ export default function Dashboard() {
 
                     {/* Reward Value */}
                     <div>
-                      <label className="block text-sm font-semibold text-slate-900 mb-2">
+                      <label className="block text-sm font-semibold text-black mb-2">
                         Reward Value *
                       </label>
                       <input
@@ -1139,14 +1198,14 @@ export default function Dashboard() {
                             rewardValue: e.target.value,
                           })
                         }
-                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
+                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 text-black"
                         required
                       />
                     </div>
 
                     {/* Token Mint */}
                     <div>
-                      <label className="block text-sm font-semibold text-slate-900 mb-2">
+                      <label className="block text-sm font-semibold text-black mb-2">
                         Token Mint *
                       </label>
                       <input
@@ -1159,7 +1218,7 @@ export default function Dashboard() {
                             tokenMint: e.target.value,
                           })
                         }
-                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
+                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 text-black"
                         required
                       />
                       <p className="text-xs text-slate-500 mt-1">
@@ -1169,7 +1228,7 @@ export default function Dashboard() {
 
                     {/* NFT Mint */}
                     <div>
-                      <label className="block text-sm font-semibold text-slate-900 mb-2">
+                      <label className="block text-sm font-semibold text-black mb-2">
                         NFT Mint *
                       </label>
                       <input
@@ -1182,7 +1241,7 @@ export default function Dashboard() {
                             nftMint: e.target.value,
                           })
                         }
-                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
+                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 text-black"
                         required
                       />
                       <p className="text-xs text-slate-500 mt-1">
@@ -1206,7 +1265,7 @@ export default function Dashboard() {
                       />
                       <label
                         htmlFor="isActive"
-                        className="text-sm font-semibold text-slate-900"
+                        className="text-sm font-semibold text-black"
                       >
                         Make this reward active immediately
                       </label>
@@ -1226,7 +1285,7 @@ export default function Dashboard() {
                       <button
                         type="button"
                         onClick={() => setActiveForm(null)}
-                        className="flex-1 px-6 py-3 bg-slate-200 text-slate-900 rounded-lg font-semibold hover:bg-slate-300 transition"
+                        className="flex-1 px-6 py-3 bg-slate-200 text-black rounded-lg font-semibold hover:bg-slate-300 transition"
                       >
                         Cancel
                       </button>
@@ -1243,7 +1302,7 @@ export default function Dashboard() {
       {showBadgePreview && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
           <div className="bg-white rounded-xl shadow-2xl max-w-md w-full p-8 max-h-[90vh] overflow-y-auto">
-            <h2 className="text-2xl font-bold text-slate-900 mb-6">
+            <h2 className="text-2xl font-bold text-black mb-6">
               Review Your Badge
             </h2>
 
@@ -1270,7 +1329,7 @@ export default function Dashboard() {
                   <p className="text-xs font-semibold text-slate-600 uppercase tracking-wide">
                     Badge Name
                   </p>
-                  <p className="text-xl font-bold text-slate-900">
+                  <p className="text-xl font-bold text-black">
                     {badgeFormData.name || "N/A"}
                   </p>
                 </div>
@@ -1339,7 +1398,7 @@ export default function Dashboard() {
               </button>
               <button
                 onClick={() => setShowBadgePreview(false)}
-                className="flex-1 px-6 py-3 bg-slate-200 text-slate-900 rounded-lg font-semibold hover:bg-slate-300 transition"
+                className="flex-1 px-6 py-3 bg-slate-200 text-black rounded-lg font-semibold hover:bg-slate-300 transition"
               >
                 Edit
               </button>
@@ -1352,7 +1411,7 @@ export default function Dashboard() {
       {showRewardPreview && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
           <div className="bg-white rounded-xl shadow-2xl max-w-md w-full p-8 max-h-[90vh] overflow-y-auto">
-            <h2 className="text-2xl font-bold text-slate-900 mb-6">
+            <h2 className="text-2xl font-bold text-black mb-6">
               Review Your Reward
             </h2>
 
@@ -1364,7 +1423,7 @@ export default function Dashboard() {
                   <p className="text-xs font-semibold text-slate-600 uppercase tracking-wide">
                     Reward Name
                   </p>
-                  <p className="text-xl font-bold text-slate-900">
+                  <p className="text-xl font-bold text-black">
                     {rewardFormData.name || "N/A"}
                   </p>
                 </div>
@@ -1446,7 +1505,7 @@ export default function Dashboard() {
               </button>
               <button
                 onClick={() => setShowRewardPreview(false)}
-                className="flex-1 px-6 py-3 bg-slate-200 text-slate-900 rounded-lg font-semibold hover:bg-slate-300 transition"
+                className="flex-1 px-6 py-3 bg-slate-200 text-black rounded-lg font-semibold hover:bg-slate-300 transition"
               >
                 Edit
               </button>
